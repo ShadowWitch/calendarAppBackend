@@ -9,7 +9,7 @@ const validarJWt = (req = request, res = response, next) => {
     // console.log('TOKEN > ', token)
 
     if(!token){
-        res.status(401).json({
+        return res.status(401).json({
             ok: false,
             msg: 'Not authenticated.'
         })
@@ -43,7 +43,7 @@ const validarJWt = (req = request, res = response, next) => {
         // console.log(req.usuario)
 
     } catch (error) {
-        // console.log('ERRORRRR >> ', error)
+        console.log('ERRORRRR >> ', error)
         return res.status(401).json({
             ok: false,
             msg: 'Not valid token.'
